@@ -1,0 +1,91 @@
+<!doctype HTML>
+<html>
+	<head>
+		<title>HerStocks</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!--Script to include feather icons-->
+		<script src="https://unpkg.com/feather-icons"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+		<!--Bootstrap stylesheet-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<!--My stylesheet-->
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	</head>
+	<body>
+		<header>
+            <img src="{{ url_for('static',filename='images/logo.png') }}">
+		</header>
+
+        <br>
+
+        <div class="text-center"><button class="btn btn-primary btn-sx btn-success btn-lg" type="button" href="#myChart"><a href="#myChart">Get Started</a></button></div>
+
+        <br>
+        <br>
+        <br>
+		<canvas id="myChart"></canvas>
+        <h2>What does it mean?</h2>
+
+        <h1 class="invest">{{ nextSteps }}</h1>
+
+        <p>
+            Buy the stock! Since the slope of the graph changes from negative to positive, we have reached a minimum and the price of the stock will likely go up. This is a
+            good opportunity to buy the stock. If you buy the stock at this time, you would be taking a "long" position, which means
+            you own that stock. Maintaining a long position implies you are expecting that the stock will rise in value in the future.
+            <br>
+
+            Sell the stock! Since the slope of the graph changes from positive to negative, we have reached a maximum and the price of the stock will
+            likely fall. This is hypothetically a good time to sell the stock. If you sell the stock at this time, you are taking a "short" position.
+            This is generally the sale of a stock you do not own which is fulfilled by a stock borred by the investor.
+            Be careful about selling stock you do not own as it is extremely risky and there are unlimited losses!
+            Selling/shorting a stock means you are expecting the price of the stock to fall sothat you can buy the stock back at a
+            lower price to make profit.
+            <br>
+
+            Since the slope of the graph is positive, the stock price is going up. We are not at a max or min yet, stay tuned!
+            <br>
+
+            Since the slope of the graph is negative, the stock price is going down. We are not at a max or min yet, stay tuned!
+        </p>
+	</body>
+	<!--Feather Icon Script that replaces the icons with the actual icon-->
+	<script>
+		feather.replace()
+	</script>
+
+	<script>
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: {{ labels | tojson }},
+		        datasets: [{
+		            label: 'stock price',
+		            data: {{ data }},
+		            backgroundColor: '#f7f7f4',
+		            borderColor: '#f0a29d',
+		            borderWidth: 5,
+		            fill: false
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero: true
+		                }
+		            }]
+		        }
+		    }
+		});
+		</script>
+
+	<!--Bootstrap-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>

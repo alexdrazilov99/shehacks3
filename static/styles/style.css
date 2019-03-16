@@ -1,0 +1,108 @@
+/*
+Color Scheme
+dark: #757573;
+light: #f7f7f4;
+green: #a3dd99;
+pink: #f0a29d;
+yellow: #f7cd6d;
+*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+	background-image: url('/Users/alexdrazilov/Desktop/HerStock/static/images/background.png');
+	font-family: "Arial Rounded MT Bold";
+}
+
+header img{
+	width: 45%;
+	height: 45%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	align: center;
+}
+
+header h1{
+	font-size: 64px;
+}
+
+header h2{
+}
+
+a {
+	color: #f7f7f4;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #f7f7f4;
+}
+
+h2{
+	text-align: center;
+	color: #f7cd6d;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+h1{
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+p{
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+canvas{
+	width: 75% !important;
+	height: 75% !important;
+	padding-left: 0;
+    padding-right: 0;
+	padding-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.invest{
+	color: #53AC78;
+}
+
+.sell{
+	color: #EB4511;
+}
+
+.nothing{
+	color: #2B303A;
+}
+
+.dark{
+	background: #2B303A;
+	color: #E1E9F1;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+body{
+	background: #f7f7f4;
+}
+
+.feather {
+  width: 64px;
+  height: 64px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
